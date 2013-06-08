@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @company.name %>
+</p>
+
+<p>
+  <strong>Name kana:</strong>
+  <%= @company.name_kana %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @company.zip %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @company.address %>
+</p>
+
+<p>
+  <strong>Tel:</strong>
+  <%= @company.tel %>
+</p>
+
+<p>
+  <strong>Fax:</strong>
+  <%= @company.fax %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @company.url %>
+</p>
+
+<%= link_to '編集', edit_company_path(@company) %> |
+<%= link_to '戻る', companies_path %>

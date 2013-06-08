@@ -1,0 +1,47 @@
+<h1><%= link_to '名刺情報一覧', url_for(:personals)%></h1>
+<%= form_tag(:controller => :personals, :action => :search) do %>
+  <%= search_field_tag :keyword, @keyword, class: 'input-medium search-query' %>
+  <%= submit_tag '検索', class: 'btn'%>
+<% end %>
+
+<% if @personals %>
+<table class="table-striped">
+  <thead>
+  <tr>
+    <th>会社名</th>
+    <th>部署名</th>
+    <th>役職</th>
+    <th>名前</th>
+    <th>TEL</th>
+    <th>Mail</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @personals.each do |personal| %>
+    <tr>
+      <td><%= link_to personal.division.company.name, personal.division.company %></td>
+      <td><%= link_to personal.division.name, personal.division %></td>
+      <td><%= personal.title %></td>
+      <td><%= link_to personal.name, personal %></td>
+      <td><%= personal.division.tel %></td>
+      <td><%= personal.mail %></td>
+      <td><%= link_to '詳細', personal, class: 'btn btn-large btn-block btn-primary' %></td>
+      <td><%= link_to '編集', edit_personal_path(personal), class: 'btn btn-large btn-block btn-info' %></td>
+      <td><%= link_to '削除', personal, method: :delete, data: { confirm: '削除しますか？' }, class: 'btn btn-large btn-block btn-danger' %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<% else %>
+  <div class="alert alert-error">検索条件に一致する名刺が見つかりませんでした</div>
+<% end %>
+
+<br>
+
+<div class="row mbl">
+  <%= link_to '新規作成', new_personal_path, class: 'btn btn-info' %>
+</div>

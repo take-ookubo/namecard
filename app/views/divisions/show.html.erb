@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @division.company.name %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @division.name %>
+</p>
+
+<p>
+  <strong>Name kana:</strong>
+  <%= @division.name_kana %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @division.zip %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @division.address %>
+</p>
+
+<p>
+  <strong>Tel:</strong>
+  <%= @division.tel %>
+</p>
+
+<p>
+  <strong>Fax:</strong>
+  <%= @division.fax %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @division.url %>
+</p>
+
+<%= link_to '編集', edit_division_path(@division) %> |
+<%= link_to '戻る', divisions_path %>

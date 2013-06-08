@@ -1,0 +1,92 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row mbl">
+  <div class="span3 palette palette-clouds">
+    <dl class="palette palette-concrete">
+      <dt>
+        <strong>会社名:</strong>
+        <%= @company.name %>
+      </dt>
+      <dt>
+        <strong>会社名カナ:</strong>
+        <%= @company.name_kana %>
+      </dt>
+      <dt>
+        <strong>郵便番号:</strong>
+        <%= @company.zip %>
+      </dt>
+      <dt>
+        <strong>住所:</strong>
+        <%= @company.address %>
+      </dt>
+      <dt>
+        <strong>電話番号:</strong>
+        <%= @company.tel %>
+      </dt>
+      <dt>
+        <strong>FAX:</strong>
+        <%= @company.fax %>
+      </dt>
+      <dt>
+        <strong>URL:</strong>
+        <%= link_to sanitize(@company.url), @company.url %>
+      </dt>
+    </dl>
+  </div>
+  <div class="span3 palette palette-clouds">
+    <dl class="palette palette-concrete">
+      <dt>
+        <strong>部署名:</strong>
+        <%= @division.name %>
+      </dt>
+      <dt>
+        <strong>部署名カナ:</strong>
+        <%= @division.name_kana %>
+      </dt>
+      <dt>
+        <strong>郵便番号:</strong>
+        <%= @division.zip %>
+      </dt>
+      <dt>
+        <strong>住所:</strong>
+        <%= @division.address %>
+      </dt>
+      <dt>
+        <strong>電話番号:</strong>
+        <%= @division.tel %>
+      </dt>
+      <dt>
+        <strong>FAX:</strong>
+        <%= @division.fax %>
+      </dt>
+    </dl>
+  </div>
+  <div class="span3 palette palette-clouds">
+    <dl class="palette palette-concrete">
+      <dt>
+        <strong>名前:</strong>
+        <%= @personal.name %>
+      </dt>
+      <dt>
+        <strong>名前カナ:</strong>
+        <%= @personal.name_kana %>
+      </dt>
+      <dt>
+        <strong>役職:</strong>
+        <%= @personal.title %>
+      </dt>
+      <dt>
+        <strong>E-MAIL:</strong>
+        <%= mail_to @personal.mail %>
+      </dt>
+      <dt>
+        <strong>備考:</strong>
+        <%= @personal.memo %>
+      </dt>
+      <dt>
+    </dl>
+  </div>
+</div>
+
+<%= link_to '編集', edit_personal_path(@personal), class: 'btn btn-info' %>
+<%= link_to '戻る', personals_path, class: 'btn' %>

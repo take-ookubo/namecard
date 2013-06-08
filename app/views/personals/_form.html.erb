@@ -1,0 +1,103 @@
+<%= form_for(@personal) do |f| %>
+  <% if @personal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@personal.errors.count, "error") %> prohibited this personal from being saved:</h2>
+
+      <ul>
+      <% @personal.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="row mbl">
+    <%= fields_for @personal.division do |d| %>
+      <%= fields_for @personal.division.company do |c| %>
+         <div class="span3 palette palette-clouds">
+              <div class="field">
+                <%= c.label '会社名' %><br>
+                <%= c.text_field :name %>
+              </div>
+              <div class="field">
+                <%= c.label '会社名カナ' %><br>
+                <%= c.text_field :name_kana %>
+              </div>
+              <div class="field">
+                <%= c.label '郵便番号' %><br>
+                <%= c.text_field :zip %>
+              </div>
+              <div class="field">
+                <%= c.label '住所' %><br>
+                <%= c.text_field :address %>
+              </div>
+              <div class="field">
+                <%= c.label '電話番号' %><br>
+                <%= c.text_field :tel %>
+              </div>
+              <div class="field">
+                <%= c.label 'FAX' %><br>
+                <%= c.text_field :fax %>
+              </div>
+              <div class="field">
+                <%= c.label 'URL' %><br>
+                <%= c.text_field :url %>
+              </div>
+         </div>
+      <% end %>
+      <div class="span3 palette palette-wet-asphalt">
+          <div class="field">
+          <%= d.label '部署名' %><br>
+          <%= d.text_field :name %>
+          </div>
+          <div class="field">
+            <%= d.label '部署名カナ' %><br>
+            <%= d.text_field :name_kana %>
+          </div>
+          <div class="field">
+            <%= d.label '郵便番号' %><br>
+            <%= d.text_field :zip %>
+          </div>
+          <div class="field">
+            <%= d.label '住所' %><br>
+            <%= d.text_field :address %>
+          </div>
+          <div class="field">
+            <%= d.label '電話番号' %><br>
+            <%= d.text_field :tel %>
+          </div>
+          <div class="field">
+            <%= d.label 'FAX' %><br>
+            <%= d.text_field :fax %>
+          </div>
+      </div>
+    <% end %>
+    <div class="span3 palette palette-clouds">
+      <div class="field">
+        <%= f.label '名前' %><br>
+        <%= f.text_field :name %>
+      </div>
+      <div class="field">
+        <%= f.label '名前カナ' %><br>
+        <%= f.text_field :name_kana %>
+      </div>
+      <div class="field">
+        <%= f.label '役職' %><br>
+        <%= f.text_field :title %>
+      </div>
+      <div class="field">
+        <%= f.label 'メール' %><br>
+        <%= f.text_field :mail %>
+      </div>
+      <div class="field">
+        <%= f.label 'メモ' %><br>
+        <%= f.text_field :memo %>
+      </div>
+    </div>
+  </div>
+  <div class="row mbl">
+    <div class="actions">
+      <%= f.submit '更新', class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>

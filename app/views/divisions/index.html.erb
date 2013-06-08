@@ -1,0 +1,41 @@
+<h1>Listing divisions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Company</th>
+      <th>Name</th>
+      <th>Name kana</th>
+      <th>Zip</th>
+      <th>Address</th>
+      <th>Tel</th>
+      <th>Fax</th>
+      <th>Url</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @divisions.each do |division| %>
+      <tr>
+        <td><%= division.company %></td>
+        <td><%= division.name %></td>
+        <td><%= division.name_kana %></td>
+        <td><%= division.zip %></td>
+        <td><%= division.address %></td>
+        <td><%= division.tel %></td>
+        <td><%= division.fax %></td>
+        <td><%= division.url %></td>
+        <td><%= link_to '詳細', division %></td>
+        <td><%= link_to '編集', edit_division_path(division) %></td>
+        <td><%= link_to '削除', division, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Division', new_division_path %>
