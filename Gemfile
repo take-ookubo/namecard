@@ -46,3 +46,6 @@ gem 'debugger', group: [:development, :test]
 
 gem 'therubyracer', group: [:development, :test]
 #gem 'squeel'
+
+# Use on heroku
+ruby "2.0.0"
