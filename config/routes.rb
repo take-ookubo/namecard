@@ -1,5 +1,7 @@
 Namecard::Application.routes.draw do
 
+  root to: 'personals#index'
+
   resources :personals do
     post :search, on: :collection
   end
@@ -7,6 +9,7 @@ Namecard::Application.routes.draw do
   resources :divisions
 
   resources :companies
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
