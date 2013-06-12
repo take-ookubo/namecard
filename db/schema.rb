@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20130607063944) do
     t.datetime "updated_at"
   end
 
-  add_index "companies", ["name"], name: "index_companies_on_name"
+  add_index "companies", ["name"], name: "index_companies_on_name", using: :btree
 
   create_table "divisions", force: true do |t|
     t.integer  "company_id"
@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(version: 20130607063944) do
     t.datetime "updated_at"
   end
 
-  add_index "divisions", ["company_id"], name: "index_divisions_on_company_id"
-  add_index "divisions", ["name"], name: "index_divisions_on_name"
+  add_index "divisions", ["company_id"], name: "index_divisions_on_company_id", using: :btree
+  add_index "divisions", ["name"], name: "index_divisions_on_name", using: :btree
 
   create_table "personals", force: true do |t|
     t.integer  "division_id"
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20130607063944) do
     t.datetime "updated_at"
   end
 
-  add_index "personals", ["division_id"], name: "index_personals_on_division_id"
-  add_index "personals", ["name"], name: "index_personals_on_name"
+  add_index "personals", ["division_id"], name: "index_personals_on_division_id", using: :btree
+  add_index "personals", ["name"], name: "index_personals_on_name", using: :btree
 
 end
